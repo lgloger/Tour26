@@ -3,47 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in - Tour26</title>
+    <title>Sign In – Tour26</title>
+    <link
+      rel="shortcut icon"
+      href="assets/logo/tour26-favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="icon" href="assets/logo/Tour26_Logo_Small.png" />
-
-    <script type="module" src="auth/authManager.js" defer></script>
+    <link rel="stylesheet" href="styles/footer.css" />
+    <script type="module" src="auth/authManger.js" defer></script>
   </head>
   <body>
-    <main>
-      <div class="authenticationHeader">
-        <img
-          class="authenticationHeaderLogo"
-          src="assets/logo/Tour26_Transparent_low.png"
-          alt="Tour26 Logo"
-        />
-      </div>
-      <div class="authenticationContent">
-        <div class="authenticationBox">
-          <span class="authenticationTitle">Mit Account Anmelden</span>
-          <div class="authenticationInputCon">
-            <input
-              class="authenticationInput"
-              id="authenticationEmailInput"
-              type="email"
-              placeholder="E-Mail Adresse"
-              required
+    <header>
+      <div class="headerMainCon">
+        <div class="headerMainConMain">
+          <a class="buttonCon blurEffect" href="index.html">
+            <img
+              src="assets/icons/tour26.svg"
+              alt="Tour26"
+              class="buttonConIcon"
             />
-            <input
-              class="authenticationInput"
-              id="authenticationPasswordInput"
-              type="password"
-              placeholder="Passwort"
-              required
-            />
-            <button class="authenticationSubmitBtn" id="authenticationSignInBtn">Anmelden</button>
+          </a>
+          <div class="buttonListCon blurEffect">
+            <span class="buttonConText">Tour26</span>
           </div>
-          <a class="authenticationLink" href="register.html"
-            >Order neuen
-            <span class="authenticationLinkU">Account erstellen.</span></a
-          >
         </div>
+        <a
+          class="buttonCon blurEffect"
+          href="https://github.com/lgloger/Tour26-web/"
+          title="Projekt auf GitHub"
+        >
+          <img
+            src="assets/icons/github_w.svg"
+            alt="Tour26"
+            class="buttonConIcon"
+          />
+        </a>
+      </div>
+    </header>
+    <main>
+      <div class="firstMainSec">
+        <span class="firstMainHeader">Bei Tour26 Anmelden</span>
+        <input
+          class="authenticationInput blurEffect"
+          id="authenticationEmailInput"
+          type="email"
+          placeholder="E-Mail Adresse"
+          required
+        />
+        <input
+          class="authenticationInput blurEffect"
+          id="authenticationPasswordInput"
+          type="password"
+          placeholder="Passwort"
+          required
+        />
+        <button
+          class="authenticationSubmitBtn blurEffect"
+          id="authenticationSignInBtn"
+        >
+          Anmelden
+        </button>
+        <span class="authenticationText"
+          >Oder neuen
+          <a class="authenticationLink" href="register.html"
+            >Account erstellen</a
+          ></span
+        >
       </div>
     </main>
+    <footer>
+      <div class="footerLinkListSec">
+        <div class="footerLinkCon">
+          <div class="footerlinkCategoryCon">
+            <span class="footerLinkHeader">Noch mehr von @lucagloger</span>
+            <a href="https://lucagloger.pages.dev/" class="footerLink"
+              >lucagloger.pages.dev
+              <img
+                src="assets/icons/arrow.svg"
+                alt="link"
+                class="footerLinkIcon"
+            /></a>
+            <a href="https://tankradar.pages.dev/" class="footerLink"
+              >tankradar.pages.dev
+              <img
+                src="assets/icons/arrow.svg"
+                alt="link"
+                class="footerLinkIcon"
+            /></a>
+          </div>
+          <div class="footerlinkCategoryCon">
+            <span class="footerLinkHeader">Intern</span>
+            <a href="" class="footerLink">Mod Login</a>
+          </div>
+          <div class="footerlinkCategoryCon">
+            <span class="footerLinkHeader">Rechtliches</span>
+            <a href="impressum.html" class="footerLink">Impressum</a>
+            <a href="datenschutz.html" class="footerLink">Datenschutz</a>
+            <a href="urheberrecht.html" class="footerLink">Urheberrecht</a>
+          </div>
+        </div>
+      </div>
+      <div class="footerCopyrightSec">
+        <span id="footerCopyrightText"
+          >Copyright © <span id="copyrightYear"></span> Luca Gloger. Alle Rechte
+          vorbehalten.</span
+        >
+        <div class="socialLinkCon">
+          <a href="https://github.com/lgloger" class="socialLink">
+            <img
+              src="assets/icons/github.svg"
+              alt="github"
+              class="socialLinkIcon"
+            />
+          </a>
+          <a href="https://x.com/luca_gloger" class="socialLink">
+            <img
+              src="assets/icons/twitter.svg"
+              alt="twitter"
+              class="socialLinkIcon"
+            />
+          </a>
+          <a href="https://www.instagram.com/luca.gloger1/" class="socialLink">
+            <img
+              src="assets/icons/instagram.svg"
+              alt="instagram"
+              class="socialLinkIcon"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <div class="firstOverlay"></div>
   </body>
+  <script>
+    document.getElementById("copyrightYear").textContent =
+      new Date().getFullYear();
+  </script>
 </html>

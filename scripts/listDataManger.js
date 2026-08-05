@@ -2,7 +2,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const supabase = createClient(
   "https://zcshqqrjxiharymzesnl.supabase.co",
-  "sb_publishable_kaHcZU4PciFFO5YICmkh_w_YBru5T2X"
+  "sb_publishable_kaHcZU4PciFFO5YICmkh_w_YBru5T2X",
 );
 
 async function getTourList() {
@@ -67,7 +67,7 @@ async function getTourList() {
       if (!jsonError && jsonBlob) {
         const jsonText = await jsonBlob.text();
         try {
-          const parsed = JSON.parse(jsonText);   // ← Hier war der Fehler
+          const parsed = JSON.parse(jsonText);
           infoData = { ...infoData, ...parsed };
           if (parsed.name) infoData.displayName = parsed.name;
         } catch (e) {
@@ -77,7 +77,7 @@ async function getTourList() {
 
       return {
         ...infoData,
-        folderName: folderName,        // Wichtig für Galerie-Link
+        folderName: folderName,
         collageUrl: signedUrlData.signedUrl,
         tourUrl: tourUrl,
       };
@@ -88,7 +88,7 @@ async function getTourList() {
 }
 
 function renderTourCards(touren) {
-  const container = document.getElementById("tourListContainer");
+  const container = document.getElementById("mainSec");
   if (!container) return;
 
   touren.forEach((tour) => {

@@ -1,0 +1,328 @@
+:root {
+  --primary-backround-color: #101014;
+  --primary-text-color: #f5f5f7;
+
+  --backdrop-filter-blur: blur(7px);
+}
+
+@font-face {
+  font-family: "OpenRunde";
+  src:
+    url("/assets/fonts/OpenRunde-Regular.woff2") format("woff2"),
+    url("/assets/fonts/OpenRunde-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenRunde";
+  src:
+    url("/assets/fonts/OpenRunde-Medium.woff2") format("woff2"),
+    url("/assets/fonts/OpenRunde-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenRunde";
+  src:
+    url("/assets/fonts/OpenRunde-Semibold.woff2") format("woff2"),
+    url("/assets/fonts/OpenRunde-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenRunde";
+  src:
+    url("/assets/fonts/OpenRunde-Bold.woff2") format("woff2"),
+    url("/assets/fonts/OpenRunde-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+input,
+button,
+textarea,
+select,
+label,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+header {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.headerFirstCon {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.headerMainCon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.headerMainConMain {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.buttonCon {
+  height: 56px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.buttonConIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.buttonConProfileIcon {
+  width: 38px;
+  height: 38px;
+}
+
+.buttonListCon {
+  height: 56px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonConText {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  padding: 0 16px;
+}
+
+.headerSecondCon {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#headerSearchInput {
+  height: 24px;
+  width: 90px;
+  background-color: transparent;
+  font-family: "OpenRunde", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  border: none;
+  margin-left: 16px;
+}
+
+#headerSearchInput::placeholder {
+  color: var(--primary-text-color);
+}
+
+.blurEffect {
+  border-radius: 32px;
+  background-color: rgba(42, 42, 45, 0.6216);
+  --webkit-backdrop-filter: var(--backdrop-filter-blur);
+  backdrop-filter: var(--backdrop-filter-blur);
+  transition: 0.15s ease-in-out;
+}
+
+.blurEffect:hover {
+  background-color: rgba(58, 58, 61, 0.622);
+}
+
+.blurEffect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    115deg,
+    rgba(111, 111, 118, 0.3) 0%,
+    rgba(42, 42, 45, 0) 50%,
+    rgba(111, 111, 118, 0.3) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.firstOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 16, 20, 1) 0%,
+    rgba(16, 16, 20, 0.75) 50%,
+    rgba(16, 16, 20, 0) 100%
+  );
+  z-index: 998;
+}
+
+@media only screen and (max-width: 740px) {
+  .headerFirstCon {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .headerSecondCon {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: calc(100% - 60px);
+    justify-content: flex-start;
+  }
+
+  .headerSecondCon .buttonListCon {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #headerSearchInput {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+}
+
+/* InfoCon */
+
+.infoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  box-sizing: border-box;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.hideInfoContainer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.infoContentCon {
+  max-width: 625px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.infoContentConHeader {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoContentConHeaderText {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+
+.infoContentConHeaderBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.infoContentConHeaderIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.infoContentConText {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary-text-color);
+}
+
+.infoContentConTextLink {
+  color: var(--primary-text-color);
+  text-decoration: underline;
+}

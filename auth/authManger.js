@@ -13,35 +13,13 @@ supabase.auth.onAuthStateChange((event, session) => {
   const isAuthpage =
     path.includes("index") || path.includes("register") || path === "/";
 
-  const createTourBtn = document.getElementById("createTourBtn");
   const signOutBtn = document.getElementById("signOutBtn");
-  const uidInfoText = document.getElementById("uidInfoText");
 
   if (session) {
     const user = session.user;
 
-    // Redirect to page
     if (isAuthpage) {
       window.location.href = "touren.html";
-    }
-
-    // handle Content if user is on a different page than auth
-    if (!isAuthpage) {
-      if (signOutBtn) {
-        signOutBtn.hidden = false;
-      }
-
-      if (uidInfoText) {
-        uidInfoText.textContent = user.id;
-      }
-
-      const isAdmin = user.app_metadata?.role === "admin";
-
-      if (isAdmin) {
-        if (createTourBtn) {
-          createTourBtn.hidden = false;
-        }
-      }
     }
   } else {
     if (!isAuthpage) {
