@@ -88,63 +88,68 @@ async function getTourList() {
 }
 
 function renderTourCards(touren) {
-  const container = document.getElementById("mainSec");
+  const container = document.querySelector("main");
   if (!container) return;
 
   touren.forEach((tour) => {
     const card = document.createElement("div");
-    card.className = "tourCard";
+    card.className = "mainItem blurEffect";
 
     card.innerHTML = `
-      <div class="tourCardHeader">
-            <div class="tourCardHeaderTitleCon">
-              <span class="tourCardHeaderTitle">
-                <img class="tourCardHeaderTitleIcon" src="assets/icons/bike.svg" alt="bike-Icon" />
-                ${tour.displayName || tour.name}
-              </span>
-              <span class="tourCardHeaderDate">${tour.date}</span>
+          <div class="mainItemConFirst">
+            <span class="mainItemHeader">${tour.displayName || tour.name}</span>
+            <span class="mainItemDate">${tour.date}</span>
+          </div>
+          <div class="mainItemInfoCon">
+            <div class="mainItemInfo">
+              <span class="mainItemInfoHeader">Gesamtzeit</span>
+              <span class="mainItemInfoValue"
+                >${tour.totalTimeHour} <span class="mainItemInfoValueS">Std</span> ${tour.totalTimeMinute}
+                <span class="mainItemInfoValueS">M</span></span
+              >
             </div>
-            <div class="tourCardHeaderInfoCon">
-              <div class="tourCardHeaderInfoConCard">
-                <span class="tourCardHeaderInfoConCardTitle">Gesamtzeit</span>
-                <span class="tourCardHeaderInfoConCardInfo">
-                  ${tour.totalTimeHour} <span class="tourCardInfoValue">Std</span> ${tour.totalTimeMinute} <span class="tourCardInfoValue">M</span>
-                </span>
-              </div>
-              <div class="tourCardHeaderInfoConCard">
-                <span class="tourCardHeaderInfoConCardTitle">Bewegungszeit</span>
-                <span class="tourCardHeaderInfoConCardInfo">
-                  ${tour.movementTimeHour} <span class="tourCardInfoValue">Std</span> ${tour.movementTimeMinute} <span class="tourCardInfoValue">M</span>
-                </span>
-              </div>
-              <div class="tourCardHeaderInfoConCard">
-                <span class="tourCardHeaderInfoConCardTitle">Distanz</span>
-                <span class="tourCardHeaderInfoConCardInfo">${tour.range} <span class="tourCardInfoValue">km</span></span>
-              </div>
-              <div class="tourCardHeaderInfoConCard">
-                <span class="tourCardHeaderInfoConCardTitle">Ø Geschwindigkeit</span>
-                <span class="tourCardHeaderInfoConCardInfo">${tour.averageSpeed} <span class="tourCardInfoValue">km/h</span></span>
-              </div>
-              <div class="tourCardHeaderInfoConCard">
-                <span class="tourCardHeaderInfoConCardTitle">Mitglieder</span>
-                <span class="tourCardHeaderInfoConCardInfo">${tour.members}</span>
-              </div>
+            <div class="mainItemInfo">
+              <span class="mainItemInfoHeader">Bewegungszeit</span>
+              <span class="mainItemInfoValue"
+                >${tour.movementTimeHour} <span class="mainItemInfoValueS">Std</span> ${tour.movementTimeMinute}
+                <span class="mainItemInfoValueS">M</span></span
+              >
+            </div>
+            <div class="mainItemInfo">
+              <span class="mainItemInfoHeader">Distanz</span>
+              <span class="mainItemInfoValue"
+                >${tour.range} <span class="mainItemInfoValueS">km</span></span
+              >
+            </div>
+            <div class="mainItemInfo">
+              <span class="mainItemInfoHeader">Ø Geschwindigkeit</span>
+              <span class="mainItemInfoValue"
+                >${tour.averageSpeed} <span class="mainItemInfoValueS">km/h</span></span
+              >
+            </div>
+             <div class="mainItemInfo">
+              <span class="mainItemInfoHeader">Mitglieder</span>
+              <span class="mainItemInfoValue"
+                >${tour.members}</span
+              >
             </div>
           </div>
-          <div class="tourCardImageCon">
-            <img class="tourCardImageConTour" src="${tour.tourUrl}" alt="tour-image" />
-            <img class="tourCardImageConCollage" src="${tour.collageUrl}" alt="collage-image" />
+          <div class="mainItemImageCon">
+            <a
+              href="${tour.routeLink}"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              class="mainItemImageLink"
+              ><iframe
+                src="${tour.routeLink}/embed?hl=de&amp;layout=map"
+                class="mainItemImageIFrame"
+                frameborder="0"
+                scrolling="no"
+              ></iframe
+            ></a>
+            <img src="${tour.collageUrl}" alt="Collage" class="mainItemImageCollage">
           </div>
-          <div class="tourCardBtnCon">
-            <a class="tourCardBtn" href="${tour.routeLink}" title="Routen-Link">
-              <img class="tourCardBtnIcon" src="assets/icons/map.svg" alt="map-Icon" />
-              <span class="btnText">Route ansehen</span>
-            </a>
-            <a class="tourCardBtn" href="gallery.html?tour=${encodeURIComponent(tour.folderName)}" title="Tour-Galerie ansehen">
-              <img class="tourCardBtnIcon" src="assets/icons/photo.svg" alt="photo-Icon" />
-              <span class="btnText">Tour-Galerie ansehen</span>
-            </a>
-          </div>
+          <a href="gallery.html?tour=${encodeURIComponent(tour.folderName)}" class="mainItemBtn">Tour Galerie</a>
     `;
 
     container.appendChild(card);
