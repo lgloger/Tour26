@@ -39,12 +39,6 @@ async function getTourList() {
         .from("touren")
         .createSignedUrl(`${folderName}/${collageFile.name}`, 3600);
 
-      let tourUrl = "";
-      const { data: tourUrlData } = await supabase.storage
-        .from("touren")
-        .createSignedUrl(`${folderName}/tour.webp`, 3600);
-      if (tourUrlData) tourUrl = tourUrlData.signedUrl;
-
       // info.json laden
       const { data: jsonBlob, error: jsonError } = await supabase.storage
         .from("touren")
@@ -61,7 +55,7 @@ async function getTourList() {
         range: "Unbekannt",
         averageSpeed: "/",
         members: "",
-        routeLink: "#",
+        routeId: "0",
       };
 
       if (!jsonError && jsonBlob) {
@@ -79,7 +73,6 @@ async function getTourList() {
         ...infoData,
         folderName: folderName,
         collageUrl: signedUrlData.signedUrl,
-        tourUrl: tourUrl,
       };
     }),
   );
@@ -88,7 +81,7 @@ async function getTourList() {
 }
 
 function renderTourCards(touren) {
-  const container = document.querySelector("main");
+  const container = document.getElementById("mainItemCon");
   if (!container) return;
 
   touren.forEach((tour) => {
@@ -141,7 +134,7 @@ function renderTourCards(touren) {
               rel="nofollow noopener noreferrer"
               class="mainItemImageLink"
               ><iframe
-                src="${tour.routeLink}/embed?hl=de&amp;layout=map"
+                src="https://www.komoot.com/tour/${tour.routeId}/embed?hl=de&amp;layout=map"
                 class="mainItemImageIFrame"
                 frameborder="0"
                 scrolling="no"

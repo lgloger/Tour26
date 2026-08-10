@@ -190,13 +190,14 @@ main {
   color: var(--primary-text-color);
 }
 
-.mainItemCon {
+#mainItemCon {
   width: 100%;
   height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  gap: 15px;
 }
 
 .mainItem {
@@ -312,3 +313,4 @@ main {
   color: var(--primary-background-color);
   text-decoration: none;
 }
+
