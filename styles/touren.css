@@ -218,9 +218,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .mainItemHeader {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 22px;
   font-weight: 500;
   color: var(--primary-text-color);
@@ -257,9 +262,13 @@ main {
 
 .mainItemInfoHeader,
 .mainItemInfoValue {
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 400;
   color: var(--primary-text-color);
+}
+
+.mainItemInfoHeader {
+  font-weight: 500;
 }
 
 .mainItemInfoValueS {
@@ -314,3 +323,13 @@ main {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 624px) {
+  .mainItemImageCon {
+    flex-direction: column;
+  }
+
+  .mainItemImageCollage {
+    width: 100%;
+    object-fit: cover;
+  }
+}
