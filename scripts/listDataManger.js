@@ -83,6 +83,7 @@ async function getTourList() {
 function renderTourCards(touren) {
   const container = document.getElementById("mainItemCon");
   if (!container) return;
+  container.innerHTML = ``;
 
   touren.forEach((tour) => {
     const card = document.createElement("div");
@@ -92,6 +93,22 @@ function renderTourCards(touren) {
           <div class="mainItemConFirst">
             <span class="mainItemHeader">${tour.displayName || tour.name}</span>
             <span class="mainItemDate">${tour.date}</span>
+          </div>
+          
+          <div class="mainItemImageCon">
+            <a
+              href="${tour.routeLink}"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              class="mainItemImageLink"
+              ><iframe
+                src="https://www.komoot.com/tour/${tour.routeId}/embed?hl=de&amp;layout=map"
+                class="mainItemImageIFrame"
+                frameborder="0"
+                scrolling="no"
+              ></iframe
+            ></a>
+            <img src="${tour.collageUrl}" alt="Collage" class="mainItemImageCollage">
           </div>
           <div class="mainItemInfoCon">
             <div class="mainItemInfo">
@@ -126,21 +143,6 @@ function renderTourCards(touren) {
                 >${tour.members}</span
               >
             </div>
-          </div>
-          <div class="mainItemImageCon">
-            <a
-              href="${tour.routeLink}"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              class="mainItemImageLink"
-              ><iframe
-                src="https://www.komoot.com/tour/${tour.routeId}/embed?hl=de&amp;layout=map"
-                class="mainItemImageIFrame"
-                frameborder="0"
-                scrolling="no"
-              ></iframe
-            ></a>
-            <img src="${tour.collageUrl}" alt="Collage" class="mainItemImageCollage">
           </div>
           <a href="gallery.html?tour=${encodeURIComponent(tour.folderName)}" class="mainItemBtn">Tour Galerie</a>
     `;

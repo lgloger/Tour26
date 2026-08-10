@@ -91,7 +91,6 @@ body {
   font-family: "OpenRunde", sans-serif;
 }
 
-/* ====== Main ====== */
 main {
   max-width: 625px;
   width: 100%;
@@ -184,20 +183,48 @@ main {
   margin-bottom: 10px;
 }
 
+#nextTourTextCon {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.nextTourLoadingAnimation {
+  width: 55px;
+  height: auto;
+}
+
 .nextTourText {
+  width: 100%;
   font-size: 16px;
   font-weight: 400;
   color: var(--primary-text-color);
+}
+
+.nextTourTextB {
+  font-weight: 600;
+}
+
+.nextTourLink {
+  margin-top: 20px;
 }
 
 #mainItemCon {
   width: 100%;
   height: auto;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   gap: 15px;
+}
+
+.loadingAnimation {
+  width: 250px;
+  height: auto;
 }
 
 .mainItem {

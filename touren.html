@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <script type="module" src="auth/authManger.js" defer></script>
     <script type="module" src="scripts/listDataManger.js" defer></script>
+    <script type="module" src="scripts/tourDataManger.js" defer></script>
   </head>
   <body>
     <header>
@@ -64,19 +65,28 @@
     <main>
       <div class="firstMainSec">
         <span class="firstMainHeader"
-          >Alle <span class="firstMainHeaderBrand">Touren</span></span
+          >Alle <span class="firstMainHeaderBrand">Touren</span> auf einem Blick</span
         >
       </div>
       <div class="mainSec">
         <div class="nextTourCon blurEffect">
           <span class="nextTourHeader">Nächste Tour</span>
-          <span class="nextTourText">Derzeit ist keine Tour geplant.</span>
-          <!-- <span class="nextTourText">Zielort: Musterort</span> -->
-          <!-- <span class="nextTourText">Datum: Tag, 00. Monat</span> -->
-          <!-- <span class="nextTourText">Entfernung & Dauer: 00 km - 0.0 h</span> -->
+          <div id="nextTourTextCon">
+            <img
+              src="assets/loadingGifs/dots-loader.gif"
+              alt="loading"
+              class="nextTourLoadingAnimation"
+            />
+          </div>
         </div>
       </div>
-      <div id="mainItemCon"></div>
+      <div id="mainItemCon">
+        <img
+          src="assets/loadingGifs/accordion-loader.gif"
+          alt="loading"
+          class="loadingAnimation"
+        />
+      </div>
     </main>
     <footer>
       <div class="footerLinkListSec">
@@ -100,7 +110,7 @@
           </div>
           <div class="footerlinkCategoryCon">
             <span class="footerLinkHeader">Intern</span>
-            <a href="" class="footerLink">Mod Login</a>
+            <a href="" class="footerLink">Admin Login</a>
           </div>
           <div class="footerlinkCategoryCon">
             <span class="footerLinkHeader">Rechtliches</span>
